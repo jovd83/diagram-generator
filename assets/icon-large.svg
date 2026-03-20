@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="Diagram Generator logo">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="180" rx="28" fill="url(#bg)"/>
+  <g transform="translate(34 38)">
+    <rect x="0" y="0" width="78" height="42" rx="12" fill="#38BDF8"/>
+    <rect x="144" y="0" width="78" height="42" rx="12" fill="#22C55E"/>
+    <rect x="72" y="72" width="78" height="42" rx="12" fill="#F59E0B"/>
+    <path d="M78 21h66M111 42v30M111 72L39 42M111 72L183 42" stroke="#E2E8F0" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="34" y="158" fill="#E2E8F0" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Diagram Generator</text>
+</svg>

@@ -1,0 +1,32 @@
+flowchart LR
+    subgraph Clients
+        Dashboard[Merchant Dashboard]
+        Integrations[Partner Integrations]
+    end
+
+    subgraph Edge
+        Gateway[API Gateway]
+    end
+
+    subgraph CoreServices
+        Payments[Payments Service]
+        Risk[Risk Service]
+        Ledger[Ledger Service]
+    end
+
+    subgraph DataAndEvents
+        Kafka[(Kafka)]
+        OpsDb[(PostgreSQL)]
+    end
+
+    PSP[External PSP]
+
+    Dashboard --> Gateway
+    Integrations --> Gateway
+    Gateway --> Payments
+    Payments --> Risk
+    Payments --> PSP
+    Payments --> Kafka
+    Payments --> OpsDb
+    Kafka --> Ledger
+    Ledger --> OpsDb

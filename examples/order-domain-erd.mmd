@@ -1,0 +1,51 @@
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ ORDER_ITEM : contains
+    ORDER ||--o{ PAYMENT : settles_with
+    ORDER ||--o| SHIPMENT : fulfills
+    ORDER ||--o| RETURN_REQUEST : may_create
+
+    CUSTOMER {
+        string id PK
+        string email
+        string full_name
+    }
+
+    ORDER {
+        string id PK
+        string customer_id FK
+        string status
+        datetime submitted_at
+        decimal total_amount
+    }
+
+    ORDER_ITEM {
+        string id PK
+        string order_id FK
+        string sku
+        int quantity
+        decimal unit_price
+    }
+
+    PAYMENT {
+        string id PK
+        string order_id FK
+        string provider_reference
+        string status
+        datetime authorized_at
+    }
+
+    SHIPMENT {
+        string id PK
+        string order_id FK
+        string carrier
+        string tracking_number
+        datetime shipped_at
+    }
+
+    RETURN_REQUEST {
+        string id PK
+        string order_id FK
+        datetime created_at
+        string status
+    }

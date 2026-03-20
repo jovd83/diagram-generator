@@ -1,0 +1,91 @@
+{
+  "skill_name": "diagram-generator",
+  "evals": [
+    {
+      "id": "order-lifecycle-state",
+      "prompt": "Use $diagram-generator to turn evals/files/ecommerce-order-lifecycle.md into a Mermaid state diagram. Keep it readable, avoid edge-case clutter, and make any missing assumptions explicit.",
+      "expected_output": "A Mermaid stateDiagram-v2 wrapped in a clear markdown response, grounded in the provided lifecycle, with no Mermaid YAML frontmatter and no invented states beyond clearly marked assumptions.",
+      "checks": {
+        "must_contain": [
+          "Purpose:",
+          "```mermaid",
+          "stateDiagram-v2"
+        ],
+        "must_not_contain": [
+          "```mermaid\n---"
+        ],
+        "code_block_language": "mermaid",
+        "min_code_blocks": 1
+      },
+      "files": [
+        "evals/files/ecommerce-order-lifecycle.md"
+      ]
+    },
+    {
+      "id": "password-reset-sequence",
+      "prompt": "Use $diagram-generator to create a sequence diagram from evals/files/password-reset-flow.md. Focus on the core happy path and preserve the security-sensitive generic response behavior.",
+      "expected_output": "A Mermaid sequence diagram with the right participants, ordered interactions, and a concise title and purpose statement. The result should stay focused on the main flow instead of branching into every failure path.",
+      "checks": {
+        "must_contain": [
+          "Purpose:",
+          "```mermaid",
+          "sequenceDiagram",
+          "generic success response"
+        ],
+        "must_not_contain": [
+          "```mermaid\n---"
+        ],
+        "code_block_language": "mermaid",
+        "min_code_blocks": 1
+      },
+      "files": [
+        "evals/files/password-reset-flow.md"
+      ]
+    },
+    {
+      "id": "payments-platform-doc-bundle",
+      "prompt": "Use $diagram-generator to document the system described in evals/files/payments-platform-overview.md. Pick a compact 3-diagram bundle and generate it directly.",
+      "expected_output": "A compact bundle ordered from high-level to detailed, typically including a context/container view, one key behavioral diagram, and one structural or data view. Each diagram should have a short rationale and a standalone code block.",
+      "checks": {
+        "must_contain": [
+          "```mermaid",
+          "Payments Service",
+          "Kafka"
+        ],
+        "must_not_contain": [
+          "```mermaid\n---"
+        ],
+        "code_block_language": "mermaid",
+        "min_code_blocks": 3
+      },
+      "files": [
+        "evals/files/payments-platform-overview.md"
+      ]
+    },
+    {
+      "id": "incident-failure-sequence",
+      "prompt": "Use $diagram-generator to convert evals/files/incident-auth-degradation.md into a Mermaid sequence diagram that highlights the grounded failure path, keeps assumptions explicit, and avoids turning speculation into fact.",
+      "expected_output": "A Mermaid sequence diagram focused on the failure timeline, with the main participants in the right order, a short title and purpose statement, and only clearly marked assumptions for any missing implementation detail.",
+      "checks": {
+        "must_contain": [
+          "Purpose:",
+          "```mermaid",
+          "sequenceDiagram",
+          "API Gateway",
+          "Auth Service",
+          "PostgreSQL"
+        ],
+        "must_not_contain": [
+          "retry",
+          "failover",
+          "cache"
+        ],
+        "code_block_language": "mermaid",
+        "min_code_blocks": 1
+      },
+      "files": [
+        "evals/files/incident-auth-degradation.md"
+      ]
+    }
+  ]
+}

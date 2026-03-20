@@ -1,0 +1,58 @@
+[
+  {
+    "query": "Can you turn this service overview into a Mermaid context diagram for our docs?",
+    "should_trigger": true
+  },
+  {
+    "query": "Document this repository with architecture and sequence diagrams so new engineers can ramp up faster.",
+    "should_trigger": true
+  },
+  {
+    "query": "I'm not sure whether I need an ERD or a state diagram for order statuses. Pick the right one and explain why.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create a PlantUML package diagram from these Java modules and their dependencies.",
+    "should_trigger": true
+  },
+  {
+    "query": "Given this incident timeline, make a sequence diagram of the failure path between the API gateway, auth service, and database.",
+    "should_trigger": true
+  },
+  {
+    "query": "Take these Postgres tables and relationships and create a compact ER diagram for the docs.",
+    "should_trigger": true
+  },
+  {
+    "query": "Here is a repository tree and some module notes. Choose the right diagram bundle for onboarding and generate it.",
+    "should_trigger": true
+  },
+  {
+    "query": "Render diagram.mmd to SVG with a dracula theme.",
+    "should_trigger": false
+  },
+  {
+    "query": "Apply a GitHub-light theme to this Mermaid file and export a PNG.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a Python script that parses an OpenAPI spec and generates client code.",
+    "should_trigger": false
+  },
+  {
+    "query": "Take this PNG architecture diagram and redraw it with nicer colors.",
+    "should_trigger": false
+  },
+  {
+    "query": "Generate a Lucidchart board for this org chart.",
+    "should_trigger": false
+  },
+  {
+    "query": "Help me fix this markdown table formatting.",
+    "should_trigger": false
+  },
+  {
+    "query": "I need a Figma-style landing page mockup for a fintech homepage.",
+    "should_trigger": false
+  }
+]

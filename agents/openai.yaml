@@ -1,0 +1,9 @@
+interface:
+  display_name: "Diagram Generator"
+  short_description: "Author Mermaid-first software diagrams"
+  icon_small: "./assets/icon-small.svg"
+  icon_large: "./assets/icon-large.svg"
+  default_prompt: "Use $diagram-generator to choose the right diagram and draft a Mermaid-first architecture, workflow, state, or data model from this artifact."
+
+policy:
+  allow_implicit_invocation: true

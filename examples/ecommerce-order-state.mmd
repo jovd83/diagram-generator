@@ -1,0 +1,69 @@
+stateDiagram-v2
+    [*] --> CartCreated : User adds items
+    
+    state CartCreated {
+        [*] --> Browsing
+        Browsing --> UpdatingQuantities
+        UpdatingQuantities --> Browsing
+        Browsing --> CheckoutInitiated : User clicks checkout
+    }
+    
+    CartCreated --> PaymentPending : Proceed to Pay
+    
+    state PaymentPending {
+        [*] --> Authorizing
+        Authorizing --> FraudScreening : Payment Gateway
+        FraudScreening --> PaymentCaptured : Low Risk
+        FraudScreening --> PaymentRejected : High Risk
+    }
+    
+    PaymentPending --> CartCreated : PaymentRejected / Retry
+    PaymentPending --> OrderConfirmed : PaymentCaptured
+    
+    state OrderConfirmed {
+        [*] --> InventoryAllocation
+        InventoryAllocation --> Backordered : Insufficient Stock
+        InventoryAllocation --> SentToWarehouse : Stock Reserved
+        Backordered --> SentToWarehouse : Supplier Restocked
+    }
+    
+    OrderConfirmed --> Processing : SentToWarehouse
+    
+    state Processing {
+        [*] --> Picking
+        Picking --> Packing : Items gathered
+        Packing --> LabelPrinted : Box sealed
+    }
+    
+    Processing --> Shipped : Carrier picks up
+    
+    state Shipped {
+        [*] --> InTransit
+        InTransit --> OutForDelivery : Local Hub
+        InTransit --> Delayed : Weather/Logistics Issue
+        Delayed --> InTransit : Issue Resolved
+        OutForDelivery --> Delivered : Customer Receives
+        OutForDelivery --> DeliveryAttemptFailed : Customer Absent
+        DeliveryAttemptFailed --> OutForDelivery : Next Day Retry
+        DeliveryAttemptFailed --> ReturnedToSender : Max Retries Met
+    }
+    
+    Shipped --> Completed : Delivered
+    Shipped --> ReturnProcessing : ReturnedToSender
+    
+    Completed --> ReturnProcessing : Customer Initiates Return
+    
+    state ReturnProcessing {
+        [*] --> AwaitingReturnDropoff
+        AwaitingReturnDropoff --> ReturnReceived : Carrier Scanned
+        ReturnReceived --> InspectingGoods
+        InspectingGoods --> RefundIssued : Items OK
+        InspectingGoods --> RefundDenied : Items Damaged
+    }
+    
+    ReturnProcessing --> Refunded : RefundIssued
+    ReturnProcessing --> Completed : RefundDenied
+    
+    Refunded --> [*]
+    OrderConfirmed --> Cancelled : User Aborts
+    Cancelled --> [*]

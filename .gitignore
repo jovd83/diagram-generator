@@ -1,0 +1,25 @@
+# Local agent workspaces and installs
+.agent/
+.agents/
+sandbox/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Node
+node_modules/
+
+# Editors and OS noise
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Generated diagram artifacts at repo root
+/*.mmd
+/*.svg
+/*.png
+
+# Generated live eval runs
+evals/runs/
