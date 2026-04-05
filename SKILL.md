@@ -192,6 +192,16 @@ Treat memory promotion as deliberate:
 - Use `python scripts/run_live_evals.py` to execute the eval suite against a live OpenAI model, save raw responses, save extracted markdown outputs, and generate a report automatically.
 - Update [agents/openai.yaml](agents/openai.yaml) if the public positioning of the skill changes.
 
+## Gotchas
+
+- **Syntactic Punctuation**: Mermaid node IDs must be simple and ASCII-safe. Special characters (e.g., `(`, `)`, `[`, `]`, `:`) and spaces will break the diagram unless the ID is kept simple and the human-readable text is provided as a quoted label: `NodeID["Label with (punctuation)"]`.
+- **Mermaid Frontmatter**: Avoid using Mermaid YAML frontmatter blocks (`---` at the top of code blocks). Many markdown previewers and internal renderers will fail to display the diagram if frontmatter is present.
+- **Size vs. Clarity**: Large diagrams (e.g., >18 flowchart nodes or >7 sequence participants) are not just hard to read; they often fail to render or are truncated. Always prefer a bundle of 2-4 small, focused diagrams over one giant omnibus chart.
+- **Sensitive Identifiers**: When generating diagrams from source code or incident logs, ensure that internal tokens, hostnames, or private identifiers are redacted or generalized to maintain security.
+- **Theming & Export**: This skill is an authoring tool, not a renderer. It focuses on logic and structure. For pixel-perfect styling, SVG export, or batch rendering of existing files, use `$pretty-mermaid`.
+- **Ambiguity Pitfall**: Diagrams generated from vague prose without grounded evidence (like code or schemas) are often misleading. Always state your assumptions clearly when the source material is thin.
+- **PlantUML Sprite Libraries**: Avoid using internet-dependent sprite libraries in PlantUML unless the environment is known to have outbound access. Stick to standard shapes for portability.
+
 ## Resource Map
 
 - Read [references/diagram-selection.md](references/diagram-selection.md) to choose the right diagram or documentation bundle.
