@@ -4,8 +4,15 @@ description: "Author grounded Mermaid-first software diagrams and compact docume
 metadata:
   author: jovd83
   version: "1.0.0"
+  dispatcher-output-artifacts: diagram_source, diagram_bundle, architecture_summary
+  dispatcher-risk: low
+  dispatcher-writes-files: true
+  dispatcher-input-artifacts: requirements, architecture_notes, code_context, data_model
+  dispatcher-capabilities: diagram-generation, architecture-visualization, mermaid-authoring
+  dispatcher-stack-tags: documentation, mermaid, architecture
+  dispatcher-accepted-intents: generate_architecture_diagram, generate_workflow_diagram, document_system_visually
+  dispatcher-category: documentation
 ---
-
 # Diagram Generator
 
 Version: 4.1.0
