@@ -15,16 +15,16 @@ metadata:
   dispatcher-accepted-intents: generate_architecture_diagram, generate_workflow_diagram, document_system_visually
   dispatcher-category: documentation
 ---
-# Diagram Generator
-
-Version: 4.1.0
-Author: jovd
-
 
 ## Telemetry & Logging
 > [!IMPORTANT]
 > All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
+> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
+
+# Diagram Generator
+
+Version: 4.1.0
+Author: jovd
 
 ## Mission
 
