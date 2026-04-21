@@ -2,7 +2,7 @@
 name: diagram-generator
 description: "Author grounded Mermaid-first software diagrams and compact documentation bundles from code, requirements, architecture notes, schemas, ADRs, incident timelines, and repository context. Use when Codex needs to choose the right diagram type, turn source material into a readable architecture, workflow, state, sequence, package, class, or data model diagram, or document a system or codebase visually. Do not use for pure rendering, theming, or batch export of existing Mermaid files; hand those tasks to $pretty-mermaid."
 metadata:
-  dispatcher-layer: execution
+  dispatcher-layer: information
   dispatcher-lifecycle: active
   author: jovd83
   version: "1.1.0"
