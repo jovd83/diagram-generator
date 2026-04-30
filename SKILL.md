@@ -1,11 +1,9 @@
 ---
 name: diagram-generator
-description: "Author grounded Mermaid-first software diagrams and compact documentation bundles from code, requirements, architecture notes, schemas, ADRs, incident timelines, and repository context. Use when Codex needs to choose the right diagram type, turn source material into a readable architecture, workflow, state, sequence, package, class, or data model diagram, or document a system or codebase visually. Do not use for pure rendering, theming, or batch export of existing Mermaid files; hand those tasks to $pretty-mermaid."
+description: Decide which diagrams to draw, what to put in them, and which tool fits — Mermaid, PlantUML, or draw.io. Plans content from code, requirements, schemas, or ADRs and hands off rendering to a sister skill (pretty-mermaid, PlantUML-skill, or drawio-skill). Do NOT render directly.
 metadata:
   dispatcher-layer: information
   dispatcher-lifecycle: active
-  author: jovd83
-  version: "1.1.0"
   dispatcher-output-artifacts: diagram_source, diagram_bundle, architecture_summary
   dispatcher-risk: low
   dispatcher-writes-files: true
@@ -14,14 +12,18 @@ metadata:
   dispatcher-stack-tags: documentation, mermaid, architecture
   dispatcher-accepted-intents: generate_architecture_diagram, generate_workflow_diagram, document_system_visually
   dispatcher-category: documentation
+
 ---
 
 ## Telemetry & Logging
 > [!IMPORTANT]
 > All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
+> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --model <model_name> --reason <reason>` (or `./log-dispatch.sh` on Linux)
 
 # Diagram Generator
+
+> **Author:** jovd83 | **Version:** 1.1.1
+
 
 Version: 4.1.0
 Author: jovd
