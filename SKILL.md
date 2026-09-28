@@ -176,13 +176,13 @@ When the user asks for files:
 - Do not expose secrets, private hostnames, or internal-only identifiers that should be redacted in published docs.
 - Do not persist user-specific architecture details outside the current task unless the user asked you to update project files.
 - Do not promote runtime observations into persistent project memory automatically.
-- Do not promote project-local details into shared memory automatically; use a dedicated shared-memory boundary only when the broader reuse case is explicit and stable.
+- Do not promote project-local details into shared memory automatically; only when the broader reuse case is explicit and stable, record it in the agent's own memory (for example CLAUDE.md or AGENTS.md).
 
 ## Memory Model
 
 - `Runtime memory`: use the current conversation, the loaded source artifacts, and temporary working notes for the active task only.
 - `Project / skill memory`: persist diagrams, documentation, examples, or eval assets only when the user explicitly asks for repository or project updates.
-- `Shared memory`: out of scope for this skill. If stable cross-project diagram conventions need to be reused, integrate with a separate shared-memory skill or external memory boundary.
+- `Shared memory`: out of scope for this skill. If stable cross-project diagram conventions need to be reused, keep them in the agent's own memory (for example CLAUDE.md or AGENTS.md).
 
 Treat memory promotion as deliberate:
 
