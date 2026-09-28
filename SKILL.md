@@ -17,11 +17,7 @@ metadata:
 
 # Diagram Generator
 
-> **Author:** jovd83 | **Version:** 1.1.1
-
-
-Version: 4.1.0
-Author: jovd
+> **Author:** jovd83 | **Version:** 4.2.2
 
 ## Mission
 
